@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+body {
+    background-color: #f4f4fb;
+}
+
+h2 {
+    font: 10px;
+    padding: 15px 0;
+}
+
+h2 > p {
+    font-size: 14px;
+    margin: .74em;
+}
+
+/* ------------
+    navbar
+--------------- */
+
+.navbar {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding-left: 6rem;
+
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 33%;
+    max-width: 300px;
+}
+
+.profile-image {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-title {
+    font-size: 0.9rem;
+    margin: .5em;
+}
+
+.side-toggle {
+    position: fixed;
+    top: 20px;
+    left: 25px;
+    float: right;
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#toggle {
+    display: none;
+}
+
+.sidebare {
+    position: fixed;
+    height: 100%;
+    width: 200px;
+    left: 0;
+    top: 0;
+    padding: 5em 0 1.25em 0;
+    color: #fff;
+    background-color: #1cc4ccf2;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebare-menu {
+    display: flex;
+    align-items: center;
+    padding: 1em 1.563em;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebare-menu > span {
+    font-size: 1.563rem;
+    padding-right: 1.875em
+
+}
+
+.sidebare-menu:hover {
+    color: #1cc4ccf2;
+    background-color: #fff
+}
+
+#toggle:checked ~ .sidebare {
+    width: 70px;
+}
+
+#toggle:checked ~ .sidebare .sidebare-menu > p {
+    display: none;
+}
+
+#toggle:checked ~ main {
+    padding: 6rem 2rem 2rem 6rem;
+}
+
+/* ------------
+    main
+--------------- */
+
+main {
+    min-height: 100%;
+    padding: 6rem 1rem 2rem 14rem;
+    color: #201f2b; 
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr 0.5fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    grid-template-areas: 
+        "total1 total2 total3 total4 total4"
+        "detail detail detail customer customer"
+        "detail detail detail customer customer"
+}
+
+.card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.total1 {
+    grid-area: total1;
+    background-color: #1f7b26;
+    color: #fff;
+}
+
+.total2 {
+    grid-area: total2;
+    background-color: #ffa705;
+    color: #fff;
+}
+
+.total3 {
+    grid-area: total3;
+    background-color: #9132bd;
+    color: #fff;
+}
+
+.total4 {
+    grid-area: total4;
+    background-color: #15a1fe;
+    color: #fff;
+}
+
+.detail {
+    grid-area: detail;
+    overflow-x: auto;
+}
+
+.customer {
+    grid-area: customer;
+    overflow-x: auto;
+}
+
+.info {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-detail h2 {
+    font-size: 1.5rem;
+}
+
+.info-detail p {
+    font-size: 0.850rem;
+    margin-top: .30em;
+}
+
+.info-image {
+    font-size: 50px;
+    color: #1cc4ccf2;
+}
+
+.detail-header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-header button {
+    height: 30px;
+    width: 120px;
+    border: 1px solid #1cc4ccf2;
+    background-color: #1cc4ccf2;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in;
+}
+
+.detail-header button:hover {
+    background-color: transparent;
+    color: #1cc4ccf2;
+    font-weight: 300;
+}
+
+.detail table {
+    width: 100%;
+    border-collapse: collapses;
+}
+
+.detail table tr:nth-child(odd) {
+    background-color: #f8f8fb;
+}
+
+.detail table th {
+    background-color: #f4f4fb;
+}
+
+.detail table th,
+.detail table td {
+    padding: 0.8rem 0.2rem;
+    text-align: left;
+    min-width: 120px;
+    font-size: 0.875rem;
+}
+
+.detail table tr:hover {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #2d2b98;
+    cursor: pointer;
+}
+
+.detail table tr td:nth-child(2),
+.detail table tr td:nth-child(3) {
+    min-width: 150px;
+}
+
+.status {
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1;
+    font-size: 0.7rem;
+}
+
+.onprogress {
+    background-color: #fff2d7;
+    color: #ffa705;
+}
+
+.confirmed {
+    background-color: #d7effc;
+    color: #15a1fe;
+}
+
+.fulfilled {
+    background-color: #dcedde;
+    color: #37aa38;
+}
+
+.customer-wrapper {
+    display: grid;      
+    grid-template-columns: 0.3fr 1fr 0.4fr;
+    grid-auto-flow: column;
+    margin: 10px 0;
+    min-width: 230px;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.customer-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.customer-name > p,
+.customer-date {
+    font-size: 0.9rem;
+}
+
+.customer-date {
+    text-align: right;
+    color: #9092a9;
+
+}
+
+/* =================
+    make responsive 
+    ================*/
+@media  screen and (max-width: 980px) {
+    .dashboard-container {
+        grid-template-columns: 1tr 1fr;
+        grid-template-areas: 
+        "total1 total2"
+        "total3 total4"
+        "detail detail"
+        "customer customer"
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profile-name {
+        display: none;
+    }
+
+    .sidebare {
+        display: none;
+    }
+
+    main {
+        padding: 6rem 2rem 2rem 2rem;
+    }
+
+    #toggle:checked ~ .sidebare {
+        width: 200px;
+        display: block;
+    }
+
+    #toggle:checked ~ .sidebare .sidebare-menu > p {
+        display: block;
+    }
+
+    #toggle:checked ~ main {
+        padding: 6rem 2rem 2rem 2rem;
+    }
+
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "total1"
+            "total2"
+            "total3"
+            "total4"
+            "detail"
+            "customer";
+    }
+
+    .detail table {
+        font-size: 0.9rem
+    };
+}
+
+
+
